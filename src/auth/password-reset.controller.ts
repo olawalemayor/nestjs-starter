@@ -30,6 +30,8 @@ export class PasswordResetController {
   @HttpCode(202)
   forgot(@Body() body: EmailDto) {
     this.passwordResetService.request(body.email);
+
+    return { message: 'Password reset request accepted' };
   }
 
   // Called by the page the link opens, with the token from its URL and the new password.
