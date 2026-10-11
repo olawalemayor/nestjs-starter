@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { NestFactory } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './app.module.js';
@@ -6,10 +7,10 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const config = new DocumentBuilder()
-    .setTitle('Injvstice')
-    .setDescription('The Injvstice API documentation')
+    .setTitle('NestJS Starter')
+    .setDescription('The NestJS Starter API documentation')
     .setVersion('1.0')
-    .addTag('injvstice')
+    .addTag('nestjs-starter')
     .build();
   const documentFactory = () => SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api/docs', app, documentFactory);
